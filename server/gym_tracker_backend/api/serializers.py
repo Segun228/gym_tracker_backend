@@ -9,7 +9,7 @@ from .models import ExerciseTemplate, Workout, WorkoutExercise, Set
 class ExerciseTemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExerciseTemplate
-        fields = ["name", "muscle_group"]
+        fields = ["name", "muscle_group", "created_at"]
 
 
 class SetSerializer(serializers.ModelSerializer):
