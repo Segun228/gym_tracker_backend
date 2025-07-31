@@ -8,7 +8,7 @@
 
 - **Python**, **Django**, **Django REST Framework**
 - **Gunicorn** — WSGI-сервер
-- **PostgreSQL** (или SQLite)
+- **SQLite**
 - **Docker**, **Docker Compose**
 - **drf-spectacular** — OpenAPI (Swagger) документация
 
