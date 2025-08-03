@@ -77,7 +77,12 @@ class WorkoutExerciseListCreateView(ListCreateAPIView):
             pk=self.kwargs['workout_id'],
             user=self.request.user
         )
-        serializer.save(workout=workout)
+        template = get_object_or_404(
+            ExerciseTemplate,
+            pk=self.request.data.get("template"), # type: ignore[attr-defined]
+            user=self.request.user
+        )
+        serializer.save(workout=workout, template=template)
 
     def get_serializer_class(self):
         if self.request.method == 'GET':

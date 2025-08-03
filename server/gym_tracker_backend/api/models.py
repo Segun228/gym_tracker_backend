@@ -19,10 +19,10 @@ class ExerciseTemplate(models.Model):
 
 class Workout(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name='workouts')
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True, blank=True)
     note = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    duration = models.TimeField(default=datetime.time(0, 0))
+    duration = models.TimeField(default=datetime.time(0, 0), blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     callories_burnt = models.IntegerField(default=0)
 

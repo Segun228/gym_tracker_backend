@@ -23,3 +23,5 @@ validators==0.35.0
 gunicorn
 drf-spectacular
 drf-spectacular[sidecar]
+dj-database-url
+psycopg2-binary
