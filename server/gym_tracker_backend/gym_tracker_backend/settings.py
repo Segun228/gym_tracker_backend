@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from datetime import timedelta
-import dj_database_url 
+import dj_database_url  # type: ignore
 
 
 load_dotenv()
@@ -79,9 +79,7 @@ WSGI_APPLICATION = "gym_tracker_backend.wsgi.application"
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:NN05092006+@hagbhpmheyaxdvrpvsyf.supabase.co:5432/postgres'
-    )
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
 
 
