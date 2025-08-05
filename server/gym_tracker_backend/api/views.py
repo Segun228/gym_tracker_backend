@@ -18,7 +18,8 @@ from .serializers import (
 class ListCreateTemplate(ListCreateAPIView):
     serializer_class = ExerciseTemplateSerializer
     permission_classes = [IsAuthenticated]
-    queryset = ExerciseTemplate.objects.all()
+    def get_queryset(self):
+        return ExerciseTemplate.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
             serializer.save(user=self.request.user)
 
@@ -27,7 +28,8 @@ class RetrieveUpdateDestroyTemplate(RetrieveUpdateDestroyAPIView):
     serializer_class = ExerciseTemplateSerializer
     permission_classes = [IsAuthenticated]
     lookup_url_kwarg = "template_id"
-    queryset = ExerciseTemplate.objects.all()
+    def get_queryset(self):
+        return ExerciseTemplate.objects.filter(user=self.request.user)
 
 
 # ===== Workout Views =====
